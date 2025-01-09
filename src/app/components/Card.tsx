@@ -35,7 +35,7 @@ const Card = () => {
                 
                     <div className='relative'>
                     <Image 
-                    src='/best-sell.jpEg' 
+                    src='/best-sell.jpeg' 
                     alt='Best Sell' 
                     width={400} 
                     height={500} />
