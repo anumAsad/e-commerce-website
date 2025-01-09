@@ -1,18 +1,25 @@
-// src/components/OurProducts.tsx
 "use client";
 
-import { useEffect, useState } from 'react';
-import Image from 'next/image';
+import { useEffect, useState } from "react";
+import Image from "next/image";
 import { useCart } from "../../context/CartContext";
 
+// Define a Product interface
+interface Product {
+  id: number; // Updated to match the expected type
+  name: string;
+  image: string;
+  price: number;
+}
+
 const OurProducts = () => {
-  const [products, setProducts] = useState<any[]>([]);
+  const [products, setProducts] = useState<Product[]>([]); // Updated to use Product[]
   const { addToCart } = useCart(); // Hook to manage cart
 
   useEffect(() => {
     const fetchProducts = async () => {
-      const response = await fetch('/api/products');
-      const data = await response.json();
+      const response = await fetch("/api/products");
+      const data: Product[] = await response.json(); // Specify data type
       setProducts(data);
     };
 
@@ -51,7 +58,6 @@ const OurProducts = () => {
           </div>
         ))}
       </div>
-      
     </div>
   );
 };
